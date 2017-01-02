@@ -11748,7 +11748,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -11760,8 +11760,6 @@ div#notebook {
 
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">OneClassSVM</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">MiniBatchKMeans</span>
 <span class="kn">from</span> <span class="nn">luminol</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">luminol.modules.time_series</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
 <span class="kn">from</span> <span class="nn">luminol.anomaly_detector</span> <span class="kn">import</span> <span class="n">AnomalyDetector</span>
@@ -11794,13 +11792,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;select onChange=&quot;window.location.href=this.value&quot;&gt;</span>
 <span class="s1">               &lt;option value = &quot;overview.html&quot;&gt;Overview&lt;/option&gt;</span>
 <span class="s1">               &lt;option value = &quot;key_concepts.html&quot;&gt;Key Concepts&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;simple_anomaly_detection.html&quot;&gt;Simple Anomaly Detection&lt;/option&gt;</span>
+<span class="s1">               &lt;option value = &quot;simple_anomaly_detection.html&quot; selected = &quot;selected&quot;&gt;Simple Anomaly Detection&lt;/option&gt;</span>
 <span class="s1">               &lt;option value = &quot;deterministic_power_martingales.html&quot;&gt;Deterministic Power Martingales&lt;/option&gt;</span>
 <span class="s1">               &lt;option value = &quot;randomized_power_martingales.html&quot;&gt;Randomized Power Martingales&lt;/option&gt;</span>
 <span class="s1">               &lt;option value = &quot;adiabatic_SVM.html&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
@@ -11818,13 +11816,13 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <select onChange="window.location.href=this.value">
                <option value = "overview.html">Overview</option>
                <option value = "key_concepts.html">Key Concepts</option>
-               <option value = "simple_anomaly_detection.html">Simple Anomaly Detection</option>
+               <option value = "simple_anomaly_detection.html" selected = "selected">Simple Anomaly Detection</option>
                <option value = "deterministic_power_martingales.html">Deterministic Power Martingales</option>
                <option value = "randomized_power_martingales.html">Randomized Power Martingales</option>
                <option value = "adiabatic_SVM.html">Adiabatic Iterative Support Vector Machines</option>
@@ -11876,7 +11874,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
@@ -11902,7 +11900,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <script>
@@ -11968,7 +11966,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># FXN:  input: time-series data, y</span>
@@ -12009,7 +12007,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># FXN:  input: time axis (x), time-series data (y1), anomaly index scores (y2), and attributes for chart labelling and scaling</span>
@@ -12075,7 +12073,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#load data</span>
@@ -12587,7 +12585,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># load data</span>
@@ -13318,7 +13316,7 @@ QpHwmp7NUb4AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># load data</span>
