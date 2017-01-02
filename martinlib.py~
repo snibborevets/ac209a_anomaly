@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+
+import numpy as np
+import scipy as sp
+import pandas as pd
+import sys
+from sklearn.utils import shuffle
+
+# NN strangeness fn
+def strangeness_nn(xtr, ytr, x, y):
+    min_n = np.inf
+    min_d = np.inf
+    for i in range(len(xtr)):
+        norm = np.linalg.norm(xtr[i]-x, ord=2)
+        if ytr[i] == y and min_n < norm: min_n = norm
+        elif min_d < norm: min_d = norm
+
+    alpha = round(min_n/min_d, 3)
+    if np.isnan(alpha):
+        alpha = np.inf
+    
+    return alpha
+
+# Tranduces examples into strangeness values given a strangeness function
+class EU_Transducer():
+
+    def __init__(self, strangeness_fn, randomized=True):
+                   
+        try:
+            a = np.array([0])
+            strangeness_fn(a, a, a, a)
+            self._sfn = strangeness_fn
+        except:
+            raise ValueError('Strangeness function must accept parameters fn(xtr, ytr, x, y)')
+
+        if randomized:
+            self._theta = lambda: np.random.rand()
+        else:
+            self._theta = lambda: 1
+
+        self._isfit = False
+            
+    def partial_fit(self, train_x, train_y):
+
+        # Validate input
+        try:
+            if len(train_x) != len(train_y):
+                raise ValueError('''The numbers of training predictors must 
+                   be equal to the number of training classes.''')
+        except:
+            raise ValueError('`examples` must be a sequence type')
+
+        self._xs = []
+        self._ys = []
+        alphas = []
+        for i in range(len(train_x)):
+            alphas.append(self._sfn(self._xs, self._ys, train_x[i], train_y[i]))
+            print(type(train_x[i]))
+            self._xs.append(train_x[i])
+            self._ys.append(train_y[i])
+        self._alphas = alphas
+        self._isfit = True
+
+    def transduce(self, x, y):
+        if not self._isfit:
+            raise ValueError('The tranducer must be trained using `partial_fit`')
+        alpha = self._sfn(self._xs, self._ys, x, y)
+
+        self._xs = self._xs[1:]
+        self._xs.append(x)
+        self._ys = self._ys[1:]
+        self._ys.append(y)
+        self._alphas.append(alpha)
+                             
+        a_greater = 0
+        a_equal = 0
+        for a in self._alphas:
+            if a > alpha: a_greater += 1
+            elif a == alpha: a_equal += 1
+
+        return (a_greater + self._theta() * a_equal) / len(self._alphas)
+
+    def fitted(self):
+        return self._isfit
+
+class PowerMartingale():
+
+    def __init__(self, transducer, epsilon=0.92):
+
+        if not transducer.fitted():
+            raise ValueError('Tranducer must be fitted.')
+                             
+        self._trans = transducer
+        self._epsilon = epsilon
+        self._step = 0
+        self._log_mi = 1.0
+
+                             
+    def generate_martingale(self, x, y):
+        pi = self._trans.transduce(x, y)
+        self._log_mi = self._log_mi - np.log10(self._epsilon*pi**(self._epsilon-1))
+        self._step += 1
+        return self._log_mi 
+                             
+if __name__ == '__main__':
+    data = shuffle(pd.read_csv('usps_train.csv'))
+    trans = EU_Transducer(strangeness_nn)
+    xtr = [np.array(data.ix[0][:-1])]
+    ytr = [np.array(data.ix[0][-1])]
+
+    trans.partial_fit(xtr, ytr)
+    pm = PowerMartingale(trans)
+
+    i = 0
+    for row in data.values:
+        x = np.array(row[:-1])
+        y = np.array(row[-1])
+#        print(trans.transduce(x, y))
+        print(pm.generate_martingale(x, y))
+        i += 1
+#        if i > 100: break
+    
