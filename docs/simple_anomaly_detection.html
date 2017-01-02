@@ -11782,20 +11782,46 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;p&gt;Website Links:&lt;/p&gt;&lt;blockquote&gt;&lt;select onChange=&quot;window.location.href=this.value&quot;&gt;</span>
-<span class="s1">               &lt;option value = &quot;overview.html&quot;&gt;Overview&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;key_concepts.html&quot;&gt;Key Concepts&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;simple_anomaly_detection.html&quot; selected = &quot;selected&quot;&gt;Simple Anomaly Detection&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;deterministic_power_martingales.html&quot;&gt;Deterministic Power Martingales&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;randomized_power_martingales.html&quot;&gt;Randomized Power Martingales&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;adiabatic_SVM.html&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;conclusion.html&quot;&gt;Conclusion&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;works_cited.html&quot;&gt;Works Cited&lt;/option&gt;</span>
-<span class="s1">               &lt;option value = &quot;poster_presentation.html&quot;&gt;Poster Presentation&lt;/option&gt;</span>
-<span class="s1">             &lt;/select&gt;&lt;/blockquote&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;</span>
+
+
+<span class="s1">             </span>
+<span class="s1">        &lt;script&gt;</span>
+<span class="s1">            code_show=true;</span>
+<span class="s1">            function code_toggle() {</span>
+<span class="s1">                if (code_show){</span>
+<span class="s1">                     $(&#39;div.input&#39;).hide();</span>
+<span class="s1">                 } else {</span>
+<span class="s1">                     $(&#39;div.input&#39;).show();</span>
+<span class="s1">                 }</span>
+<span class="s1">             code_show = !code_show</span>
+<span class="s1">            }</span>
+<span class="s1">            $( document ).ready(code_toggle);</span>
+<span class="s1">        &lt;/script&gt;</span>
+
+<span class="s1">        &lt;form action=&quot;javascript:code_toggle()&quot;&gt;</span>
+<span class="s1">            &lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;</span><span class="se">\</span>
+<span class="s1">        &lt;/form&gt;</span>
+<span class="s1">        </span>
+<span class="s1">        </span>
+<span class="s1">        &lt;br&gt;&lt;br&gt;</span>
+<span class="s1">        </span>
+<span class="s1">        &lt;select onChange=&quot;window.location.href=this.value&quot;&gt;</span>
+<span class="s1">           &lt;option value = &quot;overview.html&quot;&gt;Overview&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;key_concepts.html&quot;&gt;Key Concepts&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;simple_anomaly_detection.html&quot; selected = &quot;selected&quot;&gt;Simple Anomaly Detection&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;deterministic_power_martingales.html&quot;&gt;Deterministic Power Martingales&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;randomized_power_martingales.html&quot;&gt;Randomized Power Martingales&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;adiabatic_SVM.html&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;conclusion.html&quot;&gt;Conclusion&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;works_cited.html&quot;&gt;Works Cited&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;poster_presentation.html&quot;&gt;Poster Presentation&lt;/option&gt;</span>
+<span class="s1">        &lt;/select&gt;</span>
+
+<span class="s1">        &lt;/blockquote&gt;&#39;&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11806,20 +11832,45 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<p>Website Links:</p><blockquote><select onChange="window.location.href=this.value">
-               <option value = "overview.html">Overview</option>
-               <option value = "key_concepts.html">Key Concepts</option>
-               <option value = "simple_anomaly_detection.html" selected = "selected">Simple Anomaly Detection</option>
-               <option value = "deterministic_power_martingales.html">Deterministic Power Martingales</option>
-               <option value = "randomized_power_martingales.html">Randomized Power Martingales</option>
-               <option value = "adiabatic_SVM.html">Adiabatic Iterative Support Vector Machines</option>
-               <option value = "conclusion.html">Conclusion</option>
-               <option value = "works_cited.html">Works Cited</option>
-               <option value = "poster_presentation.html">Poster Presentation</option>
-             </select></blockquote>
+<blockquote>
+
+
+             
+        <script>
+            code_show=true;
+            function code_toggle() {
+                if (code_show){
+                     $('div.input').hide();
+                 } else {
+                     $('div.input').show();
+                 }
+             code_show = !code_show
+            }
+            $( document ).ready(code_toggle);
+        </script>
+
+        <form action="javascript:code_toggle()">
+            <input type="submit" value="Click here to toggle on/off the raw code.">        </form>
+        
+        
+        <br><br>
+        
+        <select onChange="window.location.href=this.value">
+           <option value = "overview.html">Overview</option>
+           <option value = "key_concepts.html">Key Concepts</option>
+           <option value = "simple_anomaly_detection.html" selected = "selected">Simple Anomaly Detection</option>
+           <option value = "deterministic_power_martingales.html">Deterministic Power Martingales</option>
+           <option value = "randomized_power_martingales.html">Randomized Power Martingales</option>
+           <option value = "adiabatic_SVM.html">Adiabatic Iterative Support Vector Machines</option>
+           <option value = "conclusion.html">Conclusion</option>
+           <option value = "works_cited.html">Works Cited</option>
+           <option value = "poster_presentation.html">Poster Presentation</option>
+        </select>
+
+        </blockquote>
 </div>
 
 </div>
@@ -11827,16 +11878,6 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11851,68 +11892,6 @@ div#notebook {
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;&lt;script&gt;</span>
-<span class="s1">code_show=true;</span>
-<span class="s1">function code_toggle() {</span>
-<span class="s1"> if (code_show){</span>
-<span class="s1"> $(&#39;div.input&#39;).hide();</span>
-<span class="s1"> } else {</span>
-<span class="s1"> $(&#39;div.input&#39;).show();</span>
-<span class="s1"> }</span>
-<span class="s1"> code_show = !code_show</span>
-<span class="s1">}</span>
-<span class="s1">$( document ).ready(code_toggle);</span>
-<span class="s1">&lt;/script&gt;</span>
-<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt;&lt;/blockquote&gt;&#39;&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<blockquote><script>
-code_show=true;
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-}
-$( document ).ready(code_toggle);
-</script>
-<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form></blockquote>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
