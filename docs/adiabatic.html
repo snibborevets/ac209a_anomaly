@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>overview</title>
+<title>adiabatic_SVM</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,7 +11751,18 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sklearn</span> <span class="kn">as</span> <span class="nn">sk</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
+<span class="kn">from</span> <span class="nn">luminol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">luminol.modules.time_series</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">from</span> <span class="nn">luminol.anomaly_detector</span> <span class="kn">import</span> <span class="n">AnomalyDetector</span>
 </pre></div>
 
 </div>
@@ -11836,7 +11847,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;</span>
@@ -11846,12 +11857,12 @@ div#notebook {
 <span class="s1">        &lt;br&gt;</span>
 <span class="s1">        </span>
 <span class="s1">        &lt;select onChange=&quot;window.location.href=this.value&quot;&gt;</span>
-<span class="s1">           &lt;option value = &quot;overview.html&quot; selected = &quot;selected&quot;&gt;Overview&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;overview.html&quot;&gt;Overview&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;key_concepts.html&quot;&gt;Key Concepts&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;simple_anomaly_detection.html&quot;&gt;Simple Anomaly Detection&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;deterministic_power_martingales.html&quot;&gt;Deterministic Power Martingales&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;randomized_power_martingales.html&quot;&gt;Randomized Power Martingales&lt;/option&gt;</span>
-<span class="s1">           &lt;option value = &quot;adiabatic_SVM.html&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;adiabatic_SVM.html&quot; selected = &quot;selected&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;conclusion.html&quot;&gt;Conclusion&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;works_cited.html&quot;&gt;Works Cited&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf&quot;&gt;Poster Presentation&lt;/option&gt;</span>
@@ -11868,7 +11879,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <blockquote>
@@ -11878,12 +11889,12 @@ div#notebook {
         <br>
         
         <select onChange="window.location.href=this.value">
-           <option value = "overview.html" selected = "selected">Overview</option>
+           <option value = "overview.html">Overview</option>
            <option value = "key_concepts.html">Key Concepts</option>
            <option value = "simple_anomaly_detection.html">Simple Anomaly Detection</option>
            <option value = "deterministic_power_martingales.html">Deterministic Power Martingales</option>
            <option value = "randomized_power_martingales.html">Randomized Power Martingales</option>
-           <option value = "adiabatic_SVM.html">Adiabatic Iterative Support Vector Machines</option>
+           <option value = "adiabatic_SVM.html" selected = "selected">Adiabatic Iterative Support Vector Machines</option>
            <option value = "conclusion.html">Conclusion</option>
            <option value = "works_cited.html">Works Cited</option>
            <option value = "https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf">Poster Presentation</option>
@@ -11913,207 +11924,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><ul>
-<li><a href="#Project-Objective">Project Objective</a></li>
-<li><a href="#Data-Overview">Data Overview</a></li>
-<li><a href="#Algorithm-Strategy">Algorithm Strategy</a></li>
-<li><a href="#Results-and-Conclusion">Results and Conclusion</a></li>
-<li><a href="#Link-to-Poster-Presentation">Link to Poster Presentation</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Project-Objective">Project Objective<a class="anchor-link" href="#Project-Objective">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><em>To create an algorithm to detect anomalies on-line for time series data</em></strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There are many practical uses for anomaly detection. Quantitative hedge fund analysts write algorithms to detect unusual fluctuations in stock markets, seeking to exploit an arbitrage for profit. Weather analysts detect unusual climate patterns to predict future weather. Network security analysts discover breaches by detecting unusual network activity.</p>
-<p>In many problem domains it is desirable to analyze data dynamically as they are collected over time. This introduces a number of problems for traditional machine learning algorithms, many of which assume the hypothesis of exchangeability applies to the data set. Many revolved around the concept of exchangability. The principle of exchangeability essentially means that past data are representative of future data and can therefore be used to make inferences. A more detailed discussion of exchangibility can be found <a href="https://snibborevets.github.io/ac209a_anomaly/key_concepts.html">here</a>.</p>
-<p>Our approach to creating an anomaly detection algorithm consisted of the following:</p>
-<ul>
-<li>Analyze <a href="https://snibborevets.github.io/ac209a_anomaly/works_cited.html">previous research</a> and strategies for detecting anomalies. </li>
-<li>Find time-series datasets to run through simple anomaly detection algorithm that utilizes a dataset's derivative</li>
-<li>Implement martingale alghorithms provided by Vovk's <a href="http://www.aaai.org/Papers/ICML/2003/ICML03-100.pdf">"Testing Exchangeability On-Line"</a></li>
-<li>Implement algorithm utilizing iterative <a href="https://snibborevets.github.io/ac209a_anomaly/adiabatic_SVM.html">support vector machines</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Overview">Data Overview<a class="anchor-link" href="#Data-Overview">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We sought to find time-series datasets across a broad set of fields. Ideal datasets contain a large sample size (ideally with an n of over 1,000, varying depending on the algorithm being implemented), equally spaced samples over time (i.e. units of time are identical between samples and there are no time "gaps"), and samples labelled for anomalous events.</p>
-<p>There are many sources online for finding clean time-series datasets. A few are listed below:</p>
-<ul>
-<li><a href="https://datamarket.com/data/list/?q=provider:tsdl">DataMarket's Time Series Library</a></li>
-<li><a href="https://archive.ics.uci.edu/ml/datasets.html">UCI Machine Learning Repository</a></li>
-<li><a href="http://www.cs.ucr.edu/~eamonn/time_series_data/">UCR Time Series Data</a></li>
-<li><a href="https://www.researchgate.net/post/What_are_anomaly_detection_benchmark_datasets">Links to Several Other Sites</a></li>
-</ul>
-<p>Only very minor data "cleaning" was needed in order to work with the data from the above links. It's also worth noting that  we created artificial datasets to test our algoritms containing obvious anomalous data.</p>
-<p>Our biggest challenge was finding a dataset that labelled anomalies. As a result we focused on data where known anomalies have taken place. For example, in our poster presentation we showed an anomaly detection algorithm applied to stock market data. This enabled us to see if our algorithm detected known anomalous events, such as the Cuban Missle Crisis, Dot-com Bubble or the Great Recession. The image below is from our poster presentation --- a plot of anomalies in the S&amp;P 500 Index since 1950:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img style="float: left;" src="https://snibborevets.github.io/ac209a_anomaly/sp500_poster.jpg"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Algorithm-Strategy">Algorithm Strategy<a class="anchor-link" href="#Algorithm-Strategy">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There were several steps needed to create our anomaly detection algorithm. Our method can be best described in the section below from our poster presentation below. NOTE: formulas below provided by Vovk's <a href="http://www.aaai.org/Papers/ICML/2003/ICML03-100.pdf">"Testing Exchangeability On-Line"</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img style="float: left;" src="https://snibborevets.github.io/ac209a_anomaly/algorithm_flow_chart.jpg" style="width:30px;height:22px;"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Results-and-Conclusion">Results and Conclusion<a class="anchor-link" href="#Results-and-Conclusion">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We used several methods for detecting anomalies: simple detection function using a derivative-based algorithm, deterministic and randomized power martingales, and adiabatic iterative support vector machines. Our empirical results suggest that our martingale-based anomaly detection algorithm successfully identifies concept changes (anomalies) in streaming data for each method.</p>
-<p>While we yielded good results, we would have liked to spend more time revising our strangeness algorithms, specifically the deterministic and randomized power martingales and adiabatic iterative SVM methods. Regarding power martingales, it would have been useful to make our algorithm match exactly that of Vovk's research on USPS data. Furthermore, as seen in the plots on our conclusion page, we may have been able to improve the performance so that it yielded better results than the simple derivative-based algorithm. Regarding adiabatic iterative SVM methods, we were not able to fully implement the algorithm.</p>
-<p>We also would have liked to explore more methods for determining strangeness of our data. We used the nearest-neighbor and SVM methods, but additional strangeness measures could have been utilized. For example, we could have used the random forest classifier or other decision tree algorithms to determine how strange a given point is compared to previous data received.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Link-to-Poster-Presentation">Link to Poster Presentation<a class="anchor-link" href="#Link-to-Poster-Presentation">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our poster presention from 12/9/2016 can be found <a href="https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf">here</a>.</p>
+<h2 id="Adiabatic-Iterative-Support-Vector-Machines">Adiabatic Iterative Support Vector Machines<a class="anchor-link" href="#Adiabatic-Iterative-Support-Vector-Machines">&#182;</a></h2><p><em>page under construction</em></p>
 
 </div>
 </div>

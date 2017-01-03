@@ -12109,7 +12109,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we calculate our "p-values" per the Vovk paper. The p-value determines relative strangeness: the strangeness a given sample compared to the strangeness of previous samples. Given a sample, we count the number of times this sample has a lower strangeness value than previous samples' strangeness values. Then, we divide this by the number of samples we've received.</p>
+<p>Next, we calculate our "p-values" per the Vovk paper. The p-value determines relative strangeness: the strangeness of a given sample compared to the strangeness of previous samples. Given a sample, we count the number of times this sample has a lower strangeness value than previous samples' strangeness values. Then, we divide this by the number of samples we've received.</p>
 <p>Vovk describes these p-values as "confidence tranducers" --- put simply, the p-values indicate how confident we are that a given point should be considered anomaly or not.</p>
 <p>It is also worth pointing out that the function below corresponds to what Vovk refers to as a "deterministic confidence transducer." This is in contrast to a "<a href="https://snibborevets.github.io/ac209a_anomaly/randomized_power_martingales.html">randomised confidence transducer</a>," which adds a random variable between 0 and 1 to the numerator. This simple addition to the numerator simply ensures that no two p-values are the same.</p>
 
@@ -12201,7 +12201,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, we calculate our martingale values. The martingale function is cumulative in nature, as each martingale value is calculated by multiplying a sample's relative strangeness (p-value) by every previous samples' p-values. A tuning paramter, epsilon, is incorporated into this function to both yield better results and normalize our data.</p>
+<p>Finally, we calculate our martingale values. The martingale function is cumulative in nature, as each martingale value is calculated by multiplying a sample's relative strangeness (p-value) by every previous samples' p-values. A tuning parameter, epsilon, is incorporated into this function to both yield better results and normalize our data.</p>
 <p>It's worth noting that because of the manner in which epsilon "tunes" our values below (p-values to the <em>power</em> of 1 minus epsilon), Vovk describes these martingales as "Power Martingales."</p>
 
 </div>
