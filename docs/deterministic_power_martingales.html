@@ -11929,7 +11929,6 @@ div#notebook {
 <li><a href="#Load-and-Clean-USPS-Data">Load and Clean USPS Data</a></li>
 <li><a href="#Run-Martingale-Functions-on-USPS-Data">Run Martingale Functions on USPS Data</a></li>
 <li><a href="#Comparison-to-Vovk-Paper">Comparison to Vovk Paper</a></li>
-<li><a href="#Run-Martingale-Functions-on-S&amp;P-500-Data">Run Martingale Functions on S&amp;P 500 Data</a></li>
 <li><a href="#Discussion">Discussion</a></li>
 </ul>
 
@@ -12112,7 +12111,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next, we calculate our "p-values" per the Vovk paper. The p-value determines relative strangeness: the strangeness a given sample compared to the strangeness of previous samples. Given a sample, we count the number of times this sample has a lower strangeness value than previous samples' strangeness values. Then, we divide this by the number of samples we've received.</p>
 <p>Vovk describes these p-values as "confidence tranducers" --- put simply, the p-values indicate how confident we are that a given point should be considered anomaly or not.</p>
-<p>It is also worth pointing out that the function below corresponds to what Vovk refers to as a "deterministic confidence transducer." This is in contrast to a "<a href="https://snibborevets.github.io/ac209a_anomaly/randomized_power_martingale.html">randomised confidence transducer</a>," which adds a random variable between 0 and 1 to the numerator. This simple addition to the numerator simply ensures that no two p-values are the same.</p>
+<p>It is also worth pointing out that the function below corresponds to what Vovk refers to as a "deterministic confidence transducer." This is in contrast to a "<a href="https://snibborevets.github.io/ac209a_anomaly/randomized_power_martingales.html">randomised confidence transducer</a>," which adds a random variable between 0 and 1 to the numerator. This simple addition to the numerator simply ensures that no two p-values are the same.</p>
 
 </div>
 </div>
@@ -12319,42 +12318,6 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Run-Martingale-Functions-on-USPS-Data">Run Martingale Functions on USPS Data<a class="anchor-link" href="#Run-Martingale-Functions-on-USPS-Data">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to replicate Vovk's output in figure 1, we need to:</p>
-<ol>
-<li>Run our data through the strangeness and p-value functions above;</li>
-<li>Create range of epsilon values between 0 and 1 (for x-axis)</li>
-<li>Run our martingale function for each epsilon value</li>
-<li>For each epsilon value, calculate the log (base 10) of the <em>final</em> martingale value (for y-axis)</li>
-</ol>
-<p>As the martingale output is cumulative, we are concerned with the <em>final</em> value of each martingale for a given epsilon.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
