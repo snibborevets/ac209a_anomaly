@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;</span>
@@ -11815,7 +11815,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <blockquote>
@@ -11847,7 +11847,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;</span>
@@ -11879,7 +11879,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <blockquote>
@@ -12000,6 +12000,7 @@ div#notebook {
 <li>Minimum euclidian distance between the sample and all previous samples with a <em>different label</em>.</li>
 </ul>
 <p>In other words, we're determining strangeness by seeing (1) how different our sample is from samples with the same label and (2) how similar our sample is to points with a different label.</p>
+<p><em>[click above to see code below]</em></p>
 
 </div>
 </div>
@@ -12085,6 +12086,7 @@ div#notebook {
 <p>Next, we calculate our "p-values" per the Vovk paper. The p-value determines relative strangeness: the strangeness a given sample compared to the strangeness of previous samples. Given a sample, we count the number of times this sample has a lower strangeness value than previous samples' strangeness values. Then, we divide this by the number of samples we've received.</p>
 <p>Vovk describes these p-values as "confidence tranducers" --- put simply, the p-values indicate how confident we are that a given point should be considered anomaly or not.</p>
 <p>It is also worth pointing out that the function below corresponds to what Vovk refers to as a "deterministic confidence transducer." This is in contrast to a "randomised confidence transducer," which adds a random variable between 0 and 1 to the numerator. This simple addition to the numerator simply ensures that no two p-values are the same.</p>
+<p><em>[click above to see code below]</em></p>
 
 </div>
 </div>
@@ -12147,7 +12149,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, we calculate our martingale values. The martingale function is cumulative in nature, as each martingale value is calculated by multiplying a sample's relative strangeness (p-value) every previous samples' p-values. A tuning paramter, epsilon, is incorporated into this function to both yield better results and normalize our data.</p>
-<p>It's worth noting that because of the manner in which epsilon "tunes" our values below (p-values to the <em>power</em> of 1 minus epsilon), Vovk describes these martingales as "Power Martingales."</p>
+<p>It's worth noting that because of the manner in which epsilon "tnes" our values below (p-values to the <em>power</em> of 1 minus epsilon), Vovk describes these martingales as "Power Martingales."</p>
+<p><em>[click above to see code below]</em></p>
 
 </div>
 </div>
