@@ -11764,7 +11764,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img style="float: left;" src="https://snibborevets.github.io/ac209a_anomaly/webpage_banner.jpg"></p>
+<p><a href = "https://snibborevets.github.io/ac209a_anomaly/overview"><img style="float: left;" src="https://snibborevets.github.io/ac209a_anomaly/webpage_banner.jpg"></a></p>
 
 </div>
 </div>
@@ -11789,7 +11789,7 @@ div#notebook {
 <span class="s1">            $( document ).ready(code_toggle);</span>
 <span class="s1">        &lt;/script&gt;</span>
 
-<span class="s1">        &lt;form action=&quot;javascript:code_toggle()&quot;&gt;</span>
+<span class="s1">        &lt;form action=&quot;javascript:code_toggle()&quot; id=&quot;button&quot;&gt;</span>
 <span class="s1">            &lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;</span><span class="se">\</span>
 <span class="s1">        &lt;/form&gt;</span>
 
@@ -11822,7 +11822,7 @@ div#notebook {
             $( document ).ready(code_toggle);
         </script>
 
-        <form action="javascript:code_toggle()">
+        <form action="javascript:code_toggle()" id="button">
             <input type="submit" value="Click here to toggle on/off the raw code.">        </form>
 
         </blockquote>
@@ -11836,7 +11836,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;blockquote&gt;</span>
@@ -11854,7 +11854,7 @@ div#notebook {
 <span class="s1">           &lt;option value = &quot;adiabatic_SVM.html&quot;&gt;Adiabatic Iterative Support Vector Machines&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;conclusion.html&quot;&gt;Conclusion&lt;/option&gt;</span>
 <span class="s1">           &lt;option value = &quot;works_cited.html&quot;&gt;Works Cited&lt;/option&gt;</span>
-<span class="s1">           &lt;option value = &quot;poster_presentation.html&quot;&gt;Poster Presentation&lt;/option&gt;</span>
+<span class="s1">           &lt;option value = &quot;https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf&quot;&gt;Poster Presentation&lt;/option&gt;</span>
 <span class="s1">        &lt;/select&gt;</span>
 
 <span class="s1">        &lt;/blockquote&gt;&#39;&#39;&#39;</span><span class="p">)</span>
@@ -11868,7 +11868,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <blockquote>
@@ -11886,7 +11886,7 @@ div#notebook {
            <option value = "adiabatic_SVM.html">Adiabatic Iterative Support Vector Machines</option>
            <option value = "conclusion.html">Conclusion</option>
            <option value = "works_cited.html">Works Cited</option>
-           <option value = "poster_presentation.html">Poster Presentation</option>
+           <option value = "https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf">Poster Presentation</option>
         </select>
 
         </blockquote>
@@ -11963,7 +11963,7 @@ div#notebook {
 <p>Our approach to creating an anomaly detection algorithm consisted of the following:</p>
 <ul>
 <li>Analyze <a href="https://snibborevets.github.io/ac209a_anomaly/works_cited.html">previous research</a> and strategies for detecting anomalies. </li>
-<li>Find time-series data sets to run through simple anomaly detection algorithm that utilizes a dataset's derivative</li>
+<li>Find time-series datasets to run through simple anomaly detection algorithm that utilizes a dataset's derivative</li>
 <li>Implement martingale alghorithms provided by Vovk's <a href="http://www.aaai.org/Papers/ICML/2003/ICML03-100.pdf">"Testing Exchangeability On-Line"</a></li>
 <li>Implement algorithm utilizing iterative <a href="https://snibborevets.github.io/ac209a_anomaly/adiabatic_SVM.html">support vector machines</a></li>
 </ul>
@@ -11995,7 +11995,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We sought to find time-series datasets across a broad set of fields. Ideal datasets contain a large n (ideally over 1,000 samples varying depending on the algorithm being implemented), equally spaced samples over time (i.e. units of time are identical between samples and there are no time "gaps"), and samples labelled for anomalous events.</p>
+<p>We sought to find time-series datasets across a broad set of fields. Ideal datasets contain a large sample size (ideally with an n of over 1,000, varying depending on the algorithm being implemented), equally spaced samples over time (i.e. units of time are identical between samples and there are no time "gaps"), and samples labelled for anomalous events.</p>
 <p>There are many sources online for finding clean time-series datasets. A few are listed below:</p>
 <ul>
 <li><a href="https://datamarket.com/data/list/?q=provider:tsdl">DataMarket's Time Series Library</a></li>
@@ -12043,7 +12043,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>[under construction]</p>
+<p>There were several steps needed to create our anomaly detection algorithm. Our method can be best described in the section below from our poster presentation below. NOTE: formulas below provided by Vovk's <a href="http://www.aaai.org/Papers/ICML/2003/ICML03-100.pdf">"Testing Exchangeability On-Line"</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img style="float: left;" src="https://snibborevets.github.io/ac209a_anomaly/algorithm_flow_chart.jpg" style="width:30px;height:22px;"></p>
 
 </div>
 </div>
@@ -12063,7 +12073,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Results-and-Conclusion">Results and Conclusion<a class="anchor-link" href="#Results-and-Conclusion">&#182;</a></h3>
+<h3 id="Results-and-Conclusion">Results and <a href="https://snibborevets.github.io/ac209a_anomaly/conclusion.html">Conclusion</a><a class="anchor-link" href="#Results-and-Conclusion">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12072,7 +12082,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>[under construction]</p>
+<p>We used several methods for detecting anomalies: simple detection function using a derivative-based algorithm, deterministic and randomized power martingales, and adiabatic iterative support vector machines. Our empirical results suggest that our martingale-based anomaly detection algorithm successfully identifies concept changes (anomalies) in streaming data for each method.</p>
+<p>While we yielded good results, we would have liked to spend more time revising our strangeness algorithms, specifically the deterministic and randomized power martingales and adiabatic iterative SVM methods. Regarding power martingales, it would have been useful to make our algorithm match exactly that of Vovk's research on USPS data. Furthermore, as seen in the plots on our <a href="https://snibborevets.github.io/ac209a_anomaly/conclusion.html">conclusion page</a>, we may have been able to improve the performance so that it yielded better results than the simple derivative-based algorithm. Regarding adiabatic iterative SVM methods, we were not able to fully implement the algorithm.</p>
+<p>We also would have liked to explore more methods for determining strangeness of our data. We used the nearest-neighbor and SVM methods, but additional strangeness measures could have been utilized. For example, we could have used the random forest classifier or other decision tree algorithms to determine how strange a given point is compared to previous data received.</p>
 
 </div>
 </div>
@@ -12102,16 +12114,6 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our poster presention from 12/9/2016 can be found <a href="https://snibborevets.github.io/ac209a_anomaly/Stephen_Robbins_Ryan_Lapcevic_AC209a_Poster.pdf">here</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
 
 </div>
 </div>
